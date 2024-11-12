@@ -12,7 +12,6 @@ This project demonstrates the use of Convolutional Neural Networks (CNN) to clas
 6. [Training the Model](#training-the-model)
 7. [Evaluation and Metrics](#evaluation-and-metrics)
 8. [Results](#results)
-9. [License](#license)
 
 ## Overview
 
