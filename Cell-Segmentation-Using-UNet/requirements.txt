@@ -1,6 +1,0 @@
-streamlit==1.33.0
-numpy
-Pillow
-opencv-python-headless
-keras==3.2.1
-tensorflow==2.16.1
