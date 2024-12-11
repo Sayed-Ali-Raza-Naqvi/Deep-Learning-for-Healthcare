@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import tensorflow as tf
+from tensorflow.keras.models import load_model
 from PIL import Image
 import cv2
 import os
@@ -9,7 +10,7 @@ st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("cell_segmentation_model.keras")
+    model = load_model("cell_segmentation_model.keras")
     return model
 
 model = load_model()
