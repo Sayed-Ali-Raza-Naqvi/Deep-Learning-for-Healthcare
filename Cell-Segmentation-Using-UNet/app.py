@@ -8,33 +8,7 @@ import os
 
 st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
-# @st.cache_resource
-# def load_seg_model():
-#     model = load_model("cell_segmentation_model.keras")
-#     return model
-
-@st.cache_resource
-def load_seg_model():
-    # Specify the path to the model
-    model_path = "cell_segmentation_model.keras"  # Update if using an absolute path
-    full_path = os.path.join(os.path.dirname(__file__), model_path)  # Adjusts path relative to script location
-
-    # Attempt to load the model
-    try:
-        model = tf.keras.models.load_model(full_path)
-        st.success("Model loaded successfully!")
-        return model
-    except FileNotFoundError:
-        st.error(f"Model file not found at {full_path}. Ensure it's in the correct location.")
-        raise
-    except ValueError as e:
-        st.error(f"Model loading failed: {e}")
-        raise
-    except Exception as e:
-        st.error(f"An unexpected error occurred: {e}")
-        raise
-
-model = load_seg_model()
+model = load_model("cell_segmentation_model.keras")
 
 def preprocess_image(image):
     img = image.resize((128, 128))
