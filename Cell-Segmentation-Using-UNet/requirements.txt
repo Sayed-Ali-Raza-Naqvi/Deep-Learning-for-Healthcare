@@ -3,4 +3,3 @@ numpy
 Pillow
 opencv-python-headless
 keras
-zipfile
