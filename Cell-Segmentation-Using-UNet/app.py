@@ -12,7 +12,7 @@ st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 @st.cache_resource
 def load_seg_model():
     # Use an absolute path relative to Streamlit Cloud storage
-    model_path = "Deep-Learning-for-Healthcare/Cell-Segmentation-Using-UNet/model_for_nuclei.keras"
+    model_path = "model_for_nuclei.keras"
     full_path = os.path.join(os.getcwd(), model_path)  # Use os.getcwd() for the current directory in Streamlit Cloud
 
     try:
