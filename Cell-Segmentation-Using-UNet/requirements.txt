@@ -4,3 +4,4 @@ tensorflow==2.14
 Pillow
 opencv-python-headless
 keras
+zipfile
