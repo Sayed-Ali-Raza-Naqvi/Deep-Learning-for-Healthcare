@@ -15,15 +15,17 @@ st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
 @st.cache_resource
 def load_seg_model():
+    # Specify the path to the model
     model_path = "cell_segmentation_model.keras"  # Update if using an absolute path
-    st.write(f"Attempting to load model from: {os.path.abspath(model_path)}")
-    
+    full_path = os.path.join(os.path.dirname(__file__), model_path)  # Adjusts path relative to script location
+
+    # Attempt to load the model
     try:
-        model = tf.keras.models.load_model(model_path)
+        model = tf.keras.models.load_model(full_path)
         st.success("Model loaded successfully!")
         return model
     except FileNotFoundError:
-        st.error("Model file not found. Ensure 'cell_segmentation_model.keras' is in the correct location.")
+        st.error(f"Model file not found at {full_path}. Ensure it's in the correct location.")
         raise
     except ValueError as e:
         st.error(f"Model loading failed: {e}")
