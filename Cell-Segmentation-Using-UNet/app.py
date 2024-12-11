@@ -9,7 +9,7 @@ import os
 # Set page configuration
 st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
-model = load_model("models/model_for_nuclei.keras")
+model = load_model("./models/model_for_nuclei.keras")
 
 # Function to preprocess the image
 def preprocess_image(image):
