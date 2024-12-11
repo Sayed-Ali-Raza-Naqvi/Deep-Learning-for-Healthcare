@@ -10,7 +10,8 @@ import os
 st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
 # Load the model
-model = load_model("models/model_for_nuclei.keras")
+model_path = os.path.join(os.getcwd(), "Deep-Learning-for-Healthcare/Cell-Segmentation-Using-UNet/models/model_for_nuclei.keras")
+model = load_model(model_path)
 
 # Function to preprocess the image
 def preprocess_image(image):
