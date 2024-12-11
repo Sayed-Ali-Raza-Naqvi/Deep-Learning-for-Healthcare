@@ -9,11 +9,11 @@ import os
 st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
 @st.cache_resource
-def load_model():
+def load_seg_model():
     model = load_model("cell_segmentation_model.keras")
     return model
 
-model = load_model()
+model = load_seg_model()
 
 def preprocess_image(image):
     img = image.resize((128, 128))
