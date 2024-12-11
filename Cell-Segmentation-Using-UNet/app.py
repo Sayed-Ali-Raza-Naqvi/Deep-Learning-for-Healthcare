@@ -5,19 +5,11 @@ from keras.models import load_model
 from PIL import Image
 import cv2
 import os
-import zipfile
 
 # Set page configuration
 st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
-keras_path = 'model_for_nuclei.keras'
-extract_path = './model_dir'
-
-with zipfile.ZipFile(keras_path, 'r') as zip_ref:
-    zip_ref.extractall(extract_path)
-
-model_path = "./model_dir"
-model = load_model(model_path)
+model = load_model("models/model_for_nuclei.keras")
 
 # Function to preprocess the image
 def preprocess_image(image):
