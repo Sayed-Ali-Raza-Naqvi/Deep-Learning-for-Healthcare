@@ -9,7 +9,7 @@ st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
 @st.cache_resource
 def load_model():
-    model_path = "cell_segmentation_model.keras"
+    model_path = "/cell_segmentation_model.keras"
     model = tf.keras.models.load_model(model_path)
     return model
 
