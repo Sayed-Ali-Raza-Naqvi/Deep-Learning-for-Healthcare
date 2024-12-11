@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import tensorflow as tf
+from tensorflow.keras.models import load_model
 from PIL import Image
 import cv2
 import os
@@ -8,29 +9,8 @@ import os
 # Set page configuration
 st.set_page_config(page_title="Nuclei Segmentation App", layout="centered")
 
-# Function to load the model
-@st.cache_resource
-def load_seg_model():
-    # Use an absolute path relative to Streamlit Cloud storage
-    model_path = "model_for_nuclei.keras"
-    full_path = os.path.join(os.getcwd(), model_path)  # Use os.getcwd() for the current directory in Streamlit Cloud
-
-    try:
-        model = tf.keras.models.load_model(full_path)
-        st.success("Model loaded successfully!")
-        return model
-    except FileNotFoundError:
-        st.error(f"Model file not found at {full_path}. Ensure it's in the correct location.")
-        raise
-    except ValueError as e:
-        st.error(f"Model loading failed: {e}")
-        raise
-    except Exception as e:
-        st.error(f"An unexpected error occurred: {e}")
-        raise
-
 # Load the model
-model = load_seg_model()
+model = load_model("model_for_nuclei.keras")
 
 # Function to preprocess the image
 def preprocess_image(image):
